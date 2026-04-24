@@ -60,7 +60,7 @@ function Navbar({ isMobile, onToggleSidebar }) {
         ) : null}
         <img
           src={logoDark}
-          alt="SETA Engineering"
+          alt="Seta Engineering"
           style={{
             height: isMobile ? 28 : 34,
             width: 'auto',

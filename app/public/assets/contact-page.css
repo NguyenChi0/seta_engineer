@@ -110,6 +110,94 @@
   margin-bottom: 30px;
 }
 
+.form__item--privacy-consent {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.form__item--privacy-consent .privacy-consent-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  margin-bottom: 0;
+  cursor: pointer;
+  line-height: 1.5;
+  width: fit-content;
+}
+
+.form__item--privacy-consent .privacy-consent-label > input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 0;
+  margin-right: 0;
+}
+
+.form__item--privacy-consent .privacy-consent-text a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.form__item--privacy-consent .privacy-consent-text a:hover {
+  color: #ca1d1d;
+}
+
+.privacy-consent-error {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #ca1d1d;
+}
+
+.contact-submit-ack-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.contact-submit-ack-panel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 32px 28px 28px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-submit-ack-message {
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #333;
+  white-space: pre-line;
+}
+
+.contact-submit-ack-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 60px;
+  background: #ca1d1d;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact-submit-ack-button:hover {
+  filter: brightness(1.05);
+}
+
 .form__item>label {
   display: block;
   font-weight: 700;

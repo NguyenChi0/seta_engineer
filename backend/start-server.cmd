@@ -1,7 +1,7 @@
 @echo off
 cd /d "%~dp0"
 echo.
-echo === SETA backend (Dung Ctrl+C de dung) ===
+echo === Seta backend (Dung Ctrl+C de dung) ===
 echo.
 node server.js
 echo.

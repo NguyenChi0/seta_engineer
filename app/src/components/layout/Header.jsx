@@ -60,11 +60,11 @@ export default function Header() {
         <Link
           className="header-logo"
           to="/"
-          aria-label="SETA Engineering"
+          aria-label="Seta Engineering"
           aria-hidden={megaOpen}
           tabIndex={megaOpen ? -1 : undefined}
         >
-          <img src={ASSETS + 'header_logo.jpg'} alt="SETA Engineering" />
+          <img src={ASSETS + 'header_logo.jpg'} alt="Seta Engineering" />
         </Link>
       )}
       <nav className="global-menu" id="js-global-menu">
@@ -140,14 +140,14 @@ export default function Header() {
         <nav className="mega-menu pc">
           <div className="column--left">
             <h1 className="logo">
-              <Link to="/"><img src={ASSETS + 'logo.png'} alt="SETA Engineering" style={{ width: 300, height: 135, display: 'block' }} /></Link>
+              <Link to="/"><img src={ASSETS + 'logo.png'} alt="Seta Engineering" style={{ width: 300, height: 135, display: 'block' }} /></Link>
             </h1>
             <div className="mega-menu__foot">
               <ul>
                 <li><Link to="/contact">{'\u304a\u554f\u5408\u305b'}</Link></li>
                 <li><Link to="/privacy-policy">{'\u500b\u4eba\u60c5\u5831\u4fdd\u8b77\u65b9\u91dd'}</Link></li>
               </ul>
-              <div className="copyright">{'\u00a9'} 2026 SETA Engineering</div>
+              <div className="copyright">{'\u00a9'} 2026 Seta Engineering</div>
             </div>
           </div>
           <div className="column--right">
@@ -227,7 +227,7 @@ export default function Header() {
           <div className="mobile-menu__top">
             <h1 className="logo">
               <Link to="/">
-                <img className="mobile-menu__logo-img" src={`${ASSETS}logo.png`} alt="SETA Engineering" width={260} height={78} decoding="async" />
+                <img className="mobile-menu__logo-img" src={`${ASSETS}logo.png`} alt="Seta Engineering" width={260} height={78} decoding="async" />
               </Link>
             </h1>
           </div>

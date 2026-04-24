@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="column--left">
           <Link to="/">
-            <img src={`${ASSETS}footer_logo.jpg`} alt="SETA Engineering" width="220" height="86" />
+            <img src={`${ASSETS}footer_logo.jpg`} alt="Seta Engineering" width="220" height="86" />
           </Link>
         </div>
         <div className="column--center">
@@ -134,7 +134,7 @@ export default function Footer() {
           </nav>
         </div>
       </div>
-      <div className="copyright" style={{ background: '#ca1d1d', color: '#fff' }}>© 2026 SETA Engineering</div>
+      <div className="copyright" style={{ background: '#ca1d1d', color: '#fff' }}>© 2026 Seta Engineering</div>
     </footer>
   )
 }

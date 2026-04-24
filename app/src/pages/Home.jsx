@@ -35,7 +35,7 @@ function KeyVisual() {
         />
       </div>
       <div className="sp">
-        <img src={`${ASSETS}kv_movie_sp.jpg`} alt="SETA Engineering" fetchPriority="high" />
+        <img src={`${ASSETS}kv_movie_sp.jpg`} alt="Seta Engineering" fetchPriority="high" />
         <video
           ref={spVideoRef}
           src={`${ASSETS}homevid_mobile.mp4`}
@@ -227,7 +227,7 @@ function Achievements() {
         </div>
         <div className="section__body">
           <p>
-            SETA Engineeringでは、ベトナムを中心に20校以上の大学と産学連携を行い、500名以上の若手エンジニア育成に取り組んできました。これまでに1000名以上の外国人技術者の就職支援実績を積み上げ、現地教育から日本就職までを一貫して支援できる体制を構築しています。<br className="pc" />
+            Seta Engineeringでは、ベトナムを中心に20校以上の大学と産学連携を行い、500名以上の若手エンジニア育成に取り組んできました。これまでに1000名以上の外国人技術者の就職支援実績を積み上げ、現地教育から日本就職までを一貫して支援できる体制を構築しています。<br className="pc" />
             <br className="pc" />
             この確かな基盤を活かし、現在ではプロジェクト型アウトソーシングやリモート開発チームの構築、さらには日本語人材の紹介・研修サービスなど、多岐にわたるサービス展開を通じて、企業の中長期的な成長に寄与しています。<br className="pc" />
             <br className="pc" />
