@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.news-detail-page {
+  padding: 60px 20px 80px;
+  margin-top: 170px;
+}
+
+.news-article {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
+  padding: 48px 44px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+}
+
+.news-article__header {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.news-article__date {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.news-article__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #111;
+  margin: 0 0 14px;
+}
+
+.news-article__lead {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #555;
+  margin: 0;
+}
+
+.news-article__body {
+  color: #333;
+  line-height: 1.85;
+}
+
+/* Force all rendered DB HTML to use Montserrat */
+.news-article__content,
+.news-article__content * {
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif !important;
+}
+
+.news-article__section {
+  padding: 0;
+  margin-bottom: 32px;
+  overflow: visible;
+}
+
+.news-article__section h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ca1d1d;
+}
+
+.news-article__section p {
+  margin: 0 0 12px;
+}
+.news-article__section p:last-child {
+  margin-bottom: 0;
+}
+
+.news-article__section ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+.news-article__section li {
+  margin-bottom: 6px;
+  line-height: 1.75;
+}
+
+.news-article__closing {
+  padding: 24px 0 0;
+  margin: 0;
+  border-top: 1px solid #e0e0e0;
+  overflow: visible;
+}
+
+.news-article__closing p {
+  margin: 0;
+  color: #444;
+  line-height: 1.85;
+}
+
+.news-article__media {
+  margin: 28px 0 32px;
+  text-align: center;
+}
+
+.news-article__media img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 8px;
+}
+
+.news-article__cta {
+  margin: 32px 0 8px;
+  text-align: center;
+}
+
+.news-article__cta a {
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.2s ease;
+}
+
+.news-article__cta a:hover {
+  opacity: 0.92;
+}
+
+.news-article__cta img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .news-detail-page {
+    margin-top: 100px;
+  }
+  .news-article {
+    padding: 28px 18px;
+    border-radius: 10px;
+  }
+  .news-article__title {
+    font-size: 1.4rem;
+  }
+}

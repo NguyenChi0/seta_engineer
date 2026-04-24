@@ -1,0 +1,188 @@
+.page-style-1-4 .subservice-article h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1f1f1f;
+}
+.page-style-1-4 .subservice-subtitle {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-4 .service14-intro p {
+  
+  color: #333;
+  line-height: 1.85;
+  text-align: justify;
+}
+.page-style-1-4 .service14-intro p:last-child { margin-bottom: 0; }
+.page-style-1-4 .service14-intro {
+  margin-bottom: 0px;
+}
+
+/* Service Lineup style (match 1-1) */
+.page-style-1-4 .service-lineup-style { margin-top: 0px; }
+.page-style-1-4 .service-lineup-style .lineup-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  margin: 18px 0;
+  background: #fff;
+}
+.page-style-1-4 .service-lineup-style .lineup-no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #1b1b1b;
+  border-right: 2px solid #1b1b1b;
+  border-bottom: 2px solid #1b1b1b;
+  line-height: 1;
+}
+.page-style-1-4 .service-lineup-style .lineup-content { min-width: 0; }
+.page-style-1-4 .service-lineup-style .lineup-head {
+  padding: 18px 20px 14px;
+  border-bottom: 2px solid #1b1b1b;
+  min-height: 84px;
+}
+.page-style-1-4 .service-lineup-style .lineup-head h3 {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-4 .service-lineup-style .lineup-subtitle {
+  margin: 4px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-4 .service-lineup-style .lineup-desc {
+  padding: 16px 20px 18px;
+}
+.page-style-1-4 .service-lineup-style .lineup-desc p {
+  margin: 0;
+  color: #2b2b2b;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .page-style-1-4 .service-lineup-style .lineup-item {
+    grid-template-columns: 86px 1fr;
+  }
+  .page-style-1-4 .service-lineup-style .lineup-content {
+    display: contents;
+  }
+  .page-style-1-4 .service-lineup-style .lineup-no {
+    font-size: 2.6rem;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-bottom: 2px solid #1b1b1b;
+  }
+  .page-style-1-4 .service-lineup-style .lineup-head {
+    grid-column: 2;
+  }
+  .page-style-1-4 .service-lineup-style .lineup-head { min-height: auto; padding-top: 8px; padding-bottom: 8px; border-bottom: 2px solid #1b1b1b; }
+  .page-style-1-4 .service-lineup-style .lineup-head h3 { font-size: 1.15rem; line-height: 1.35; }
+  .page-style-1-4 .service-lineup-style .lineup-subtitle { margin-top: 2px; font-size: 1rem; }
+  .page-style-1-4 .service-lineup-style .lineup-head { padding-left: 14px; padding-right: 14px; }
+  .page-style-1-4 .service-lineup-style .lineup-desc {
+    grid-column: 1 / -1;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 12px;
+  }
+  .page-style-1-4 .service-lineup-style .lineup-desc p { line-height: 1.8; }
+}
+
+.page-style-1-4 .faq-section details { margin-bottom: 10px; border: 1px solid #d3d3d3; border-radius: 10px; padding: 10px; background: #fbfbfb; }
+.page-style-1-4 .faq-section summary { font-weight: 700; cursor: pointer; outline: none; }
+.page-style-1-4 .faq-section p { margin: 8px 0 0; color: #444; }
+
+/* CTA contact button (Page 1-4) */
+.page-style-1-4 .subservice-cta {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-1-4 .subservice-cta > p {
+  margin: 0 0 14px;
+}
+
+.page-style-1-4 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-1-4 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.page-style-1-4 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-1-4 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-style-1-4 .btn-contact:hover .btn-contact__icon svg,
+.page-style-1-4 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-1-4 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-1-4 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}

@@ -1,0 +1,402 @@
+.page-style-1-2 .subservice-title-section { text-align: center; }
+.page-style-1-2 .subservice-title-section h2 { font-size: 2.4rem; margin-bottom: 8px; }
+.page-style-1-2 .subservice-title-section p.jp-subtitle { margin-bottom: 18px; }
+.page-style-1-2 .subservice-title-section p { color: #333; line-height: 1.8; }
+
+/* Service Flow (match Service Details phase style) */
+.page-style-1-2 .service-flow { margin-top: 30px; }
+.page-style-1-2 .service-flow .jp-subtitle { margin-bottom: 18px; }
+
+.page-style-1-2 .service-flow-phases {
+  margin-top: 12px;
+  background: #fff;
+}
+.page-style-1-2 .flow-phase {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15fr 30fr 55fr;
+  column-gap: 18px;
+  padding: 28px 0 18px;
+  border-top: 1px solid #cfcfcf;
+}
+.page-style-1-2 .flow-phase:last-child { border-bottom: 1px solid #cfcfcf; }
+.page-style-1-2 .flow-phase__label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 12px 0 6px;
+  margin-top: -18px;
+  background: #fff;
+  width: fit-content;
+  color: #111;
+}
+.page-style-1-2 .flow-phase__text { font-size: 1rem; font-weight: 500; }
+.page-style-1-2 .flow-phase__num { font-size: 2.4rem; font-weight: 700; letter-spacing: 0.02em; }
+
+.page-style-1-2 .flow-phase__grid {
+  display: contents;
+}
+.page-style-1-2 .flow-phase__title {
+  padding: 6px 16px;
+  font-weight: 700;
+  text-align: center;
+  border-right: 1px dotted #9a9a9a;
+  color: #111;
+  white-space: nowrap;
+}
+.page-style-1-2 .flow-phase__desc {
+  padding: 6px 18px;
+  color: #1f1f1f;
+  line-height: 1.7;
+}
+.page-style-1-2 .flow-phase__desc p { margin: 0 0 10px; }
+.page-style-1-2 .flow-phase__desc p:last-child { margin-bottom: 0; }
+
+/* Issue Solution */
+.page-style-1-2 .issue-solution { margin-top: 42px; }
+.page-style-1-2 .issue-solution h2 { font-size: 2.6rem; }
+.page-style-1-2 .issue-solution .jp-subtitle { margin-bottom: 26px; }
+
+.page-style-1-2 .issue-list { display: grid; gap: 34px; }
+.page-style-1-2 .issue-item {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 18px;
+}
+.page-style-1-2 .issue-rail {
+  grid-row: 2;
+  border-right: 1px solid #bfbfbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-style-1-2 .issue-rail__label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+}
+
+.page-style-1-2 .issue-main { grid-row: 2; padding-top: 16px; }
+.page-style-1-2 .issue-head {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.page-style-1-2 .issue-title {
+  padding: 10px 16px;
+}
+.page-style-1-2 .issue-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-right: 1px solid rgba(255,255,255,0.5);
+  white-space: nowrap;
+}
+.page-style-1-2 .issue-body {
+  margin-top: 16px;
+  padding-right: 10px;
+  color: #333;
+}
+.page-style-1-2 .issue-body p { margin: 0 0 16px; line-height: 1.85; }
+
+.page-style-1-2 .issue-success {
+  background: #f3f3f3;
+  padding: 14px 16px;
+}
+.page-style-1-2 .issue-success__row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  align-items: start;
+}
+.page-style-1-2 .issue-success__label {
+  position: relative;
+  font-weight: 800;
+  color: #222;
+  white-space: nowrap;
+  padding-left: 1.1em;
+}
+.page-style-1-2 .issue-success__label::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ca1d1d;
+}
+.page-style-1-2 .issue-success__text { color: #333; line-height: 1.7; }
+
+/* Achievements table */
+.page-style-1-2 .achievements { margin-top: 42px; }
+.page-style-1-2 .achievements h2 { font-size: 2.6rem; }
+.page-style-1-2 .achievements .jp-subtitle { margin-bottom: 22px; }
+.page-style-1-2 .achievements-table-wrap { overflow-x: auto; }
+.page-style-1-2 .achievements-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.page-style-1-2 .achievements-table th,
+.page-style-1-2 .achievements-table td {
+  border: 1px solid #bdbdbd;
+  padding: 14px 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+.page-style-1-2 .achievements-table thead th {
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.page-style-1-2 .achievements-table tbody td {
+  background: #d5d5d5;
+  color: #333;
+}
+.page-style-1-2 .achievements-table tbody td:nth-child(1) { width: 34%; }
+.page-style-1-2 .achievements-table tbody td:nth-child(2) { width: 20%; }
+.page-style-1-2 .achievements-table tbody td:nth-child(3) { width: 46%; }
+
+@media (max-width: 640px) {
+  .page-style-1-2 .issue-item { grid-template-columns: 44px 1fr; column-gap: 12px; }
+  .page-style-1-2 .issue-rail__label { font-size: 0.8rem; letter-spacing: 0.18em; }
+  .page-style-1-2 .issue-head { grid-template-columns: 44px 1fr; }
+  .page-style-1-2 .issue-badge { font-size: 0.8rem; padding: 10px 8px; }
+  .page-style-1-2 .issue-title { padding: 10px 12px; }
+  .page-style-1-2 .issue-success__row { grid-template-columns: 1fr; row-gap: 8px; }
+  .page-style-1-2 .issue-success__text { margin-left: 0; }
+}
+
+/* Unify titles to Feature format */
+
+.page-style-1-2 .service-flow h2,
+.page-style-1-2 .issue-solution h2,
+.page-style-1-2 .achievements h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.page-style-1-2 .service-flow .jp-subtitle,
+.page-style-1-2 .issue-solution .jp-subtitle,
+.page-style-1-2 .achievements .jp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+/* Achievements table (mobile): turn table into text blocks */
+@media (max-width: 767px) {
+  .page-style-1-2 .achievements-table-wrap {
+    overflow-x: visible;
+  }
+
+  .page-style-1-2 .achievements-table thead {
+    display: none;
+  }
+
+  .page-style-1-2 .achievements-table,
+  .page-style-1-2 .achievements-table tbody,
+  .page-style-1-2 .achievements-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .page-style-1-2 .achievements-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    color: #333;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    box-sizing: border-box;
+  }
+
+  /* Override desktop tbody background/column widths on mobile */
+  .page-style-1-2 .achievements-table tbody td {
+    background: transparent;
+    width: 100% !important;
+  }
+  .page-style-1-2 .achievements-table tbody td:nth-child(1),
+  .page-style-1-2 .achievements-table tbody td:nth-child(2),
+  .page-style-1-2 .achievements-table tbody td:nth-child(3) {
+    width: 100% !important;
+  }
+
+  .page-style-1-2 .achievements-table td::before {
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .page-style-1-2 .achievements-table td:nth-child(1)::before { content: '専門分野'; }
+  .page-style-1-2 .achievements-table td:nth-child(2)::before { content: '採用人数'; }
+  .page-style-1-2 .achievements-table td:nth-child(3)::before { content: '日本語レベル・備考'; }
+}
+
+/* Achievements title (mobile): avoid clipping on narrow screens */
+@media (max-width: 420px) {
+  .page-style-1-2 .achievements h2 {
+    font-size: 1.9rem;
+    line-height: 1.12;
+    margin: 0 0 6px;
+  }
+
+  .page-style-1-2 .achievements .jp-subtitle {
+    font-size: 1rem;
+    margin: 0 0 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-style-1-2 .flow-phase {
+    grid-template-columns: 66px minmax(0, 1fr);
+    column-gap: 12px;
+    padding-top: 16px;
+  }
+
+  .page-style-1-2 .flow-phase__label {
+    padding-right: 6px;
+    padding-left: 2px;
+  }
+
+  .page-style-1-2 .flow-phase__num {
+    font-size: 1.9rem;
+  }
+
+  .page-style-1-2 .flow-phase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "desc";
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+    grid-column: 1 / -1;
+  }
+
+  .page-style-1-2 .flow-phase__title {
+    grid-area: title;
+    border-right: none;
+    border-bottom: 1px dotted #9a9a9a;
+    white-space: normal;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 10px 14px 12px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .page-style-1-2 .flow-phase__desc {
+    grid-area: desc;
+    grid-column: auto;
+    padding: 8px 14px 12px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* CTA contact button (Page 1-2) */
+.page-style-1-2 .subservice-cta {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-1-2 .subservice-cta > p {
+  margin: 0 0 14px;
+}
+
+.page-style-1-2 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-1-2 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit; /* keep icon color in sync with button text */
+}
+
+.page-style-1-2 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-1-2 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-style-1-2 .btn-contact:hover .btn-contact__icon svg,
+.page-style-1-2 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-1-2 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-1-2 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}

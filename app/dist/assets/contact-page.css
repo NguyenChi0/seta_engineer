@@ -1,0 +1,537 @@
+@charset "utf-8";
+
+/* Hero — chữ xám chạy ngang (cùng pattern /recruitment) */
+@keyframes page-hero-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.page-hero-marquee .page-title .marquee {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  padding-bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: normal;
+}
+
+.page-hero-marquee .page-title .marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0;
+  will-change: transform;
+  animation: page-hero-marquee-scroll 50s linear infinite;
+  padding-bottom: 85px;
+}
+
+.page-hero-marquee .page-title .marquee-inner {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  font-size: 218.67px;
+  font-weight: 400;
+  line-height: 1;
+  color: #c8c8c8;
+  opacity: 1;
+  padding-right: 0.35em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero-marquee .page-title .marquee-track {
+    animation: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-hero-marquee .page-title .marquee-track {
+    padding-bottom: 10%;
+  }
+
+  .page-hero-marquee .page-title .marquee-inner {
+    font-size: 109.335px;
+  }
+}
+
+/*
+=======================================================
+ RESET
+=======================================================
+*/
+
+.wpcf7 .screen-reader-response,
+.wpcf7-response-output,
+.wpcf7-spinner {
+  display: none;
+  line-height: 0;
+}
+
+.wpcf7 .screen-reader-response p {
+  margin-bottom: 0 !important;
+}
+
+.wpcf7-list-item {
+  margin: 0;
+}
+
+/*
+=======================================================
+ FORM
+=======================================================
+*/
+
+.form-container {
+  padding: 30px 60px;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+}
+
+
+.form-container>p {
+  margin-bottom: 30px;
+}
+
+.form-container p.note {
+  font-size: 14px;
+  color: #ca1d1d;
+  margin-bottom: 0;
+}
+
+.form__item {
+  margin-bottom: 30px;
+}
+
+.form__item>label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  }
+  .form__item.required>label::after {
+    content: '※';
+    color: #ca1d1d;
+    font-size: 10px;
+    vertical-align: super;
+  }
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(51,51,51,.2);
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 29.5px;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-weight: 700;
+  color: rgba(51,51,51,.5);
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+	font-weight: 700;
+  color: rgba(51,51,51,.5);
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	font-weight: 700;
+  color: rgba(51,51,51,.5);
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+	font-weight: 700;
+  color: rgba(51,51,51,.5);
+}
+
+.subject-checkbox {
+  margin-top: 15px;
+}
+
+.subject-checkbox label {
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  margin-right: .5em;
+  accent-color: #333;
+}
+
+/* Service/subject checkbox boxes */
+.subject-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subject-checkbox input[type=checkbox] {
+  margin-right: 0;
+}
+
+.subject-checkbox .wpcf7-list-item-label {
+  flex: 1;
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: unset;
+  color: #333;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.wpcf7-not-valid-tip {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ca1d1d;
+  }
+  .wpcf7-not-valid-tip::before {
+    content: '※';
+    color: #ca1d1d;
+  }
+
+.wpcf7-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.subject-checkbox .wpcf7-checkbox {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 14px;
+}
+
+.subject-checkbox .wpcf7-list-item {
+  width: 100%;
+  }
+  .subject-checkbox .wpcf7-list-item:last-child {
+    width: 100%;
+  }
+
+.wpcf7-free-text {
+  margin-top: 10px;
+}
+
+/* Other free-text input (「その他」) */
+.subject-checkbox .wpcf7-list-item.last.has-free-text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.subject-checkbox .wpcf7-free-text {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 16px 14px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.subject-checkbox .wpcf7-free-text:disabled {
+  opacity: 1;
+  color: #333;
+  -webkit-text-fill-color: #333;
+}
+
+.form__item--consent {
+  margin-top: 70px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(51,51,51,.05);
+  text-align: center;
+}
+
+.form__item--consent a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.form-container .btn-container {
+  margin-top: 50px;
+  position: relative;
+}
+
+input[type=submit] {
+  background: #ca1d1d url(../images/contact/icon_btn_submit.svg) right 20px center no-repeat;
+  width: 400px;
+  height: 60px;
+  border-radius: 60px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.contact-by-phone {
+  width: fit-content;
+  margin: 0 auto;
+  background: #ca1d1d;
+  padding: 24px 44px;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.contact-by-phone h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.contact-by-phone div {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.contact-by-phone div > span {
+  display: none;
+}
+
+.contact-by-phone span {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contact-by-phone .phone {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  }
+  .contact-by-phone .phone::before {
+    content: '';
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: url(../images/contact/icon_phone.svg) center center / contain no-repeat;
+    filter: brightness(0) invert(1);
+  }
+
+.contact-by-phone .phone span {
+  font-size: 43px;
+  font-weight: 700;
+  color: #fff;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.1;
+  display: inline-block;
+}
+
+.contact-by-phone p {
+  font-size: 14px;
+  color: #fff;
+}
+
+.form__value {
+  background-color: #fff;
+  padding: 29.5px;
+  border-radius: 10px;
+  min-height: 80px;
+  }
+  .subject-checkbox .form__value {
+    background-color: transparent;
+  }
+
+.subject-checkbox .form__value span {
+  display: block;
+}
+
+.thanks-message {
+  text-align: center;
+}
+
+.thanks-message h3 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 70px;
+}
+
+.thanks-message .btn-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ca1d1d url(../images/contact/icon_btn_back.svg) left 20px center no-repeat;
+  width: 400px;
+  height: 60px;
+  border-radius: 60px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------- */
+  @media screen and (max-width: 767px) {
+/* ---------------------------------------------------- */
+
+/*
+=======================================================
+ FORM
+=======================================================
+*/
+
+.form-container {
+  padding: 0;
+}
+
+.form__item {
+  margin-bottom: 25px;
+}
+
+.form__item.required>label {
+  margin-bottom: 5px;
+  }
+  .form__item.required>label::after {
+    font-size: 9px;
+  }
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 21px;
+}
+
+input[type=checkbox] {
+  margin-right: 0;
+  }
+  .form__item--consent input[type=checkbox] {
+    margin-right: 4px;
+  }
+
+.wpcf7-not-valid-tip {
+  margin-top: 5px;
+}
+
+.subject-checkbox .wpcf7-list-item {
+  width: 100%;
+  letter-spacing: 0;
+}
+
+.form__item--consent {
+  margin-top: 55px;
+  padding-bottom: 70px;
+  border-bottom: none;
+  text-align: left;
+}
+
+.form-container .btn-container {
+  margin-top: 0;
+}
+
+.form-container .btn-frame {
+  width: 100%;
+}
+
+input[type=submit] {
+  background-size: 27px;
+  background-position: right 15px center;
+  width: 100%;
+  height: 60px;
+  border-radius: 60px;
+  font-size: 16px;
+}
+
+.contact-by-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #ca1d1d;
+  padding: 22px 18px;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.contact-by-phone h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.contact-by-phone div {
+  display: block;
+}
+
+.contact-by-phone .phone {
+  column-gap: 10px;
+  }
+  .contact-by-phone .phone::before {
+    width: 25px;
+    height: 25px;
+    margin-top: 8px;
+    filter: brightness(0) invert(1);
+  }
+
+.contact-by-phone .phone span {
+  font-size: 35px;
+  line-height: 1;
+  padding: 0;
+  border-radius: 0;
+}
+
+.contact-by-phone p {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.form__value {
+  padding: 21px;
+  border-radius: 5px;
+  min-height: 60px;
+}
+
+.thanks-message {
+  text-align: left;
+}
+
+.thanks-message h3 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 55px;
+}
+
+.thanks-message .btn-container {
+  margin-top: 75px;
+}
+
+.thanks-message .btn-frame {
+  width: 100%;
+}
+
+.thanks-message .btn-back {
+  background-size: 27px;
+  background-position: left 20px center;
+  width: 100%;
+  height: 60px;
+  border-radius: 60px;
+  font-size: 16px;
+}
+
+
+/* ---------------------------------------------------- */
+  }
+/* ---------------------------------------------------- */

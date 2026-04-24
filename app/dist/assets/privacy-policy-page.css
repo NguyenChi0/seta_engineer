@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.privacy-policy-page {
+  /* align with other page layouts (header is absolute) */
+  margin-top: 0;
+}
+
+.privacy-policy-article {
+  background: transparent;
+}
+
+.privacy-policy-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+  color: #333;
+  line-height: 1.85;
+}
+
+.privacy-policy-content p {
+  margin: 0 0 18px;
+  text-align: justify;
+}
+
+.privacy-policy-contact h3 {
+  margin: 24px 0 12px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.privacy-policy-contact p {
+  margin: 0 0 10px;
+}
+
+.privacy-policy-date {
+  color: #555;
+}
+

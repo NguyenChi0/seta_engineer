@@ -1,0 +1,349 @@
+.page-style-2-1 .service21-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 10px;
+}
+.page-style-2-1 .service21-title__mark {
+  font-size: 1.15em;
+  line-height: 1;
+}
+.page-style-2-1 .subservice-subtitle {
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #111;
+}
+.page-style-2-1 .service21-intro p {
+  margin: 0 0 14px;
+  text-align: justify;
+  color: #333;
+  line-height: 1.85;
+}
+.page-style-2-1 .service21-intro p:last-child { margin-bottom: 0; }
+
+/* Service Flow style (match 1-2) */
+.page-style-2-1 .service-flow { margin-top: 30px; }
+.page-style-2-1 .service-flow .jp-subtitle { margin-bottom: 18px; }
+.page-style-2-1 .service-flow-phases { margin-top: 12px; background: #fff; }
+.page-style-2-1 .flow-phase {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15fr 30fr 55fr;
+  column-gap: 18px;
+  padding: 28px 0 18px;
+  border-top: 1px solid #cfcfcf;
+}
+.page-style-2-1 .flow-phase:last-child { border-bottom: 1px solid #cfcfcf; }
+.page-style-2-1 .flow-phase__label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 12px 0 6px;
+  margin-top: -18px;
+  background: #fff;
+  width: fit-content;
+  color: #111;
+}
+.page-style-2-1 .flow-phase__text { font-size: 1rem; font-weight: 500; }
+.page-style-2-1 .flow-phase__num { font-size: 2.4rem; font-weight: 700; letter-spacing: 0.02em; }
+.page-style-2-1 .flow-phase__grid { display: contents; }
+.page-style-2-1 .flow-phase__title {
+  padding: 6px 16px;
+  font-weight: 700;
+  text-align: center;
+  border-right: 1px dotted #9a9a9a;
+  color: #111;
+  white-space: nowrap;
+}
+.page-style-2-1 .flow-phase__desc { padding: 6px 18px; color: #1f1f1f; line-height: 1.7; }
+.page-style-2-1 .flow-phase__list { margin: 0; padding-left: 0; list-style: none; }
+.page-style-2-1 .flow-phase__list li {
+  position: relative;
+  padding-left: 1.1em;
+  margin: 0 0 10px;
+  line-height: 1.7;
+  color: #1f1f1f;
+}
+.page-style-2-1 .flow-phase__list li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #111;
+}
+.page-style-2-1 .flow-phase__list li:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .page-style-2-1 .flow-phase {
+    grid-template-columns: 66px minmax(0, 1fr);
+    column-gap: 12px;
+    padding-top: 16px;
+  }
+
+  .page-style-2-1 .flow-phase__label {
+    padding-right: 6px;
+    padding-left: 2px;
+  }
+
+  .page-style-2-1 .flow-phase__num {
+    font-size: 1.9rem;
+  }
+
+  .page-style-2-1 .flow-phase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "desc";
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+    grid-column: 1 / -1;
+  }
+
+  .page-style-2-1 .flow-phase__title {
+    grid-area: title;
+    border-right: none;
+    border-bottom: 1px dotted #9a9a9a;
+    white-space: normal;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 10px 14px 12px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .page-style-2-1 .flow-phase__desc {
+    grid-area: desc;
+    grid-column: auto;
+    padding: 8px 14px 12px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.page-style-2-1 .cards-list { display: grid; grid-template-columns: repeat(1,minmax(0,1fr)); gap: 22px; margin: 20px 0; }
+.page-style-2-1 .module-card { display: flex; gap: 16px; align-items: flex-start; border: 1px solid #ddd; border-radius: 12px; padding: 18px 18px 18px 20px; background: #fff; box-shadow: 0 5px 16px rgba(0,0,0,.06); }
+.page-style-2-1 .badge { font-size: 3rem; font-weight: 900; color: #ca1d1d; line-height: 1; min-width: 80px; text-align: center; border-right: 1px solid #ddd; padding-right: 14px; margin-right: 14px; }
+.page-style-2-1 .module-body h3 { margin: 0; font-size: 1.45rem; color: #1a1a1a; font-weight: 800; }
+.page-style-2-1 .module-body p { margin: 8px 0 0; color: #464646; line-height: 1.65; }
+@media screen and (min-width: 900px) { .page-style-2-1 .cards-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+
+/* Achievements table */
+.page-style-2-1 .achievements {
+  margin-top: 40px;
+}
+.page-style-2-1 .achievements h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.page-style-2-1 .achievements .jp-subtitle {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #555;
+}
+.page-style-2-1 .achievement-lead {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 28px;
+  color: #444;
+  line-height: 1.55;
+}
+.page-style-2-1 .achievement-case {
+  margin-bottom: 30px;
+}
+.page-style-2-1 .achievement-case h3 {
+  font-size: 1.3rem;
+  margin: 16px 0 6px;
+}
+.page-style-2-1 .achievement-case .case-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.page-style-2-1 .achievement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+.page-style-2-1 .achievement-table th,
+.page-style-2-1 .achievement-table td {
+  border: 1px solid #777;
+  padding: 8px 10px;
+  vertical-align: top;
+}
+.page-style-2-1 .achievement-table th {
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: left;
+}
+.page-style-2-1 .achievement-table td {
+  background: #fff;
+  color: #111;
+  font-size: 0.93rem;
+}
+.page-style-2-1 .achievement-table tbody td:first-child {
+  background: #3a3a3a;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Achievements table (mobile): turn table into text blocks */
+@media (max-width: 767px) {
+  .page-style-2-1 .achievement-table thead {
+    display: none;
+  }
+
+  .page-style-2-1 .achievement-table,
+  .page-style-2-1 .achievement-table tbody,
+  .page-style-2-1 .achievement-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .page-style-2-1 .achievement-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    color: #333;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    box-sizing: border-box;
+    background: transparent;
+  }
+
+  .page-style-2-1 .achievement-table tbody td:first-child {
+    background: transparent;
+    color: #333;
+    font-weight: 400;
+    white-space: normal;
+  }
+
+  .page-style-2-1 .achievement-table td::before {
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .page-style-2-1 .achievement-table td:nth-child(1)::before { content: '分野'; }
+  .page-style-2-1 .achievement-table td:nth-child(2)::before { content: 'プロジェクト'; }
+  .page-style-2-1 .achievement-table td:nth-child(3)::before { content: '規模'; }
+  .page-style-2-1 .achievement-table td:nth-child(4)::before { content: '対応内容'; }
+  .page-style-2-1 .achievement-table td:nth-child(5)::before { content: '成果'; }
+}
+
+/* Closing paragraph */
+.page-style-2-1 .service2-1-closing {
+  margin-top: 22px;
+}
+.page-style-2-1 .service2-1-closing p {
+  margin: 0 auto;
+  max-width: 860px;
+  color: #333;
+  line-height: 1.85;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* CTA contact button (Page 2-1) */
+.page-style-2-1 .subservice-cta {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-2-1 .subservice-cta > p {
+  margin: 0 0 14px;
+}
+
+.page-style-2-1 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-2-1 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.page-style-2-1 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-2-1 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-style-2-1 .btn-contact:hover .btn-contact__icon svg,
+.page-style-2-1 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-2-1 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-2-1 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}

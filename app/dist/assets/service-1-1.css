@@ -1,0 +1,527 @@
+.page-style-1-1 .subservice-title-section { text-align: center; }
+.page-style-1-1 .subservice-title-section h2 { font-size: 2.4rem; margin-bottom: 8px; }
+.page-style-1-1 .subservice-title-section p.jp-subtitle { margin-bottom: 18px; }
+
+/* Unify all section titles/subtitles to Feature format */
+.page-style-1-1 .subservice-title-section h2,
+.page-style-1-1 .service-lineup-style h2,
+.page-style-1-1 .service-detail h2,
+.page-style-1-1 .achievements h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.page-style-1-1 .subservice-title-section .jp-subtitle,
+.page-style-1-1 .service-lineup-style .jp-subtitle,
+.page-style-1-1 .service-detail .jp-subtitle,
+.page-style-1-1 .achievements .jp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0 0 18px;
+  text-align: center;
+}
+.page-style-1-1 .service-detail { margin-top: 30px; }
+.page-style-1-1 .service-detail .jp-subtitle { margin-bottom: 10px; }
+.page-style-1-1 .service-detail-desc { margin-bottom: 18px; }
+
+.page-style-1-1 .service-detail-phases2 {
+  margin-top: 12px;
+  background: #fff;
+}
+.page-style-1-1 .phase2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15fr 85fr;
+  column-gap: 0;
+  padding: 28px 0 18px;
+  border-top: 1px solid #cfcfcf;
+}
+.page-style-1-1 .phase2:last-child {
+  border-bottom: 1px solid #cfcfcf;
+}
+.page-style-1-1 .phase2__label {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 0 4px 0 0;
+  margin-top: -10px;
+  color: #111;
+  align-self: start;
+}
+.page-style-1-1 .phase2__text {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.page-style-1-1 .phase2__num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.page-style-1-1 .phase2__grid {
+  display: grid;
+  grid-template-columns: 20fr 30fr 35fr;
+  align-items: start;
+}
+.page-style-1-1 .phase2__title {
+  padding: 10 8px;
+  font-weight: 700;
+  text-align: center;
+  border-right: 1px dotted #9a9a9a;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-style-1-1 .phase2__col {
+  padding: 6px 18px;
+}
+.page-style-1-1 .phase2__col--mid {
+  border-right: 1px dotted #9a9a9a;
+}
+.page-style-1-1 .phase2 ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.page-style-1-1 .phase2 li {
+  position: relative;
+  padding-left: 1.1em;
+  margin: 0 0 6px;
+  line-height: 1.5;
+  font-size: 0.88rem;
+  color: #1f1f1f;
+  white-space: nowrap;
+}
+.page-style-1-1 .phase2 li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #111;
+}
+.page-style-1-1 .phase2 li:last-child { margin-bottom: 0; }
+
+.page-style-1-1 .service-lineup-style { margin-top: 24px; }
+.page-style-1-1 .service-lineup-style .lineup-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  margin: 18px 0;
+  background: #fff;
+}
+.page-style-1-1 .service-lineup-style .lineup-no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #1b1b1b;
+  border-right: 2px solid #1b1b1b;
+  border-bottom: 2px solid #1b1b1b;
+  line-height: 1;
+}
+.page-style-1-1 .service-lineup-style .lineup-content { min-width: 0; }
+.page-style-1-1 .service-lineup-style .lineup-head {
+  padding: 18px 20px 14px;
+  border-bottom: 2px solid #1b1b1b;
+  min-height: 84px;
+}
+.page-style-1-1 .service-lineup-style .lineup-head h3 {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-1 .service-lineup-style .lineup-subtitle {
+  margin: 4px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-1 .service-lineup-style .lineup-desc {
+  padding: 16px 20px 18px;
+}
+.page-style-1-1 .service-lineup-style .lineup-desc p {
+  margin: 0;
+  color: #2b2b2b;
+  line-height: 1.75;
+}
+
+/* Service lineup — mobile: [01 | EN/JP title] rồi gạch ngang full width, nội dung full width (wireframe) */
+@media (max-width: 767px) {
+  .page-style-1-1 .service-lineup-style .lineup-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 18px 0;
+    background: #fff;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-content {
+    display: contents;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-no {
+    flex: 0 0 64px;
+    width: 64px;
+    max-width: 64px;
+    box-sizing: border-box;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.15rem;
+    border-right: 2px solid #1b1b1b;
+    border-bottom: none;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-head {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 14px 14px 12px 12px;
+    border-bottom: none;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-head h3 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-subtitle {
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+
+  .page-style-1-1 .service-lineup-style .lineup-desc {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 14px 18px;
+    border-top: 2px solid #1b1b1b;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Mobile Service Details: Phase header stays in place, 2-column list can scroll */
+  .page-style-1-1 .phase2 {
+    grid-template-columns: 66px minmax(0, 1fr);
+    column-gap: 12px;
+    padding-top: 16px;
+    margin-left: -8px; /* shift table left slightly */
+    margin-right: -8px;
+  }
+
+  .page-style-1-1 .phase2__label {
+    padding-right: 6px;
+    transform: translateX(-4px);
+  }
+
+  .page-style-1-1 .phase2__num {
+    font-size: 1.9rem;
+  }
+
+  .page-style-1-1 .phase2__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "mid"
+      "col";
+    align-items: start;
+    overflow-x: visible;
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+    grid-column: 1 / -1;
+  }
+
+  .page-style-1-1 .phase2__title {
+    grid-area: title;
+    border-right: none;
+    border-bottom: 1px dotted #9a9a9a;
+    justify-content: flex-start;
+    text-align: left;
+    position: relative;
+    background: #fff;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .page-style-1-1 .phase2__col--mid {
+    grid-area: mid;
+    border-right: none;
+    border-bottom: 1px dotted #9a9a9a;
+    padding: 8px 14px 12px;
+    min-width: 0;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .page-style-1-1 .phase2__col:not(.phase2__col--mid) {
+    grid-area: col;
+    border-right: none;
+    border-bottom: none;
+    padding: 8px 14px 12px;
+    min-width: 0;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .page-style-1-1 .phase2 li {
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    padding-left: 0.65em; /* override base padding-left */
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 6px;
+  }
+
+  .page-style-1-1 .phase2 li::before {
+    font-size: 0.8rem;
+  }
+}
+
+/* Achievements title (mobile): tránh bị cắt */
+@media (max-width: 420px) {
+  .page-style-1-1 .achievements h2 {
+    font-size: 1.9rem;
+    line-height: 1.12;
+    margin: 0 0 6px;
+  }
+
+  .page-style-1-1 .achievements .jp-subtitle {
+    font-size: 1rem;
+    margin: 0 0 12px;
+  }
+}
+
+/* Achievement table: smaller text for consistent layout */
+.page-style-1-1 .achievement-table th,
+.page-style-1-1 .achievement-table td {
+  padding: 6px 8px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.page-style-1-1 .achievement-table th {
+  font-size: 0.86rem;
+}
+
+/* Keep 「採用人数（結果）」 on one line */
+.page-style-1-1 .achievement-table tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+/* Tighten space between Achievements and contact image */
+.page-style-1-1 .achievements {
+  margin-bottom: 8px;
+}
+
+.page-style-1-1 .achievement-case:last-child {
+  margin-bottom: 8px;
+}
+
+.page-style-1-1 .achievement-table {
+  margin-bottom: 8px;
+}
+
+/* CTA contact button (Page 1-1) */
+.page-style-1-1 .subservice-cta {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-1-1 .subservice-cta > p {
+  margin: 0 0 ;
+}
+
+.page-style-1-1 .cta-image-link {
+  display: block;
+  width: min(100%, 980px);
+}
+
+.page-style-1-1 .cta-image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .page-style-1-1.subservice-page {
+    padding-bottom: 16px;
+  }
+
+  .page-style-1-1 .subservice-article {
+    padding-bottom: 18px;
+  }
+
+  .page-style-1-1 .subservice-cta {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.page-style-1-1 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-1-1 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit; /* keep icon color in sync with button text */
+}
+
+.page-style-1-1 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-1-1 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .page-style-1-1 .subservice-cta {
+    margin-bottom: 4px;
+    padding-bottom: 0;
+  }
+
+  .page-style-1-1 .cta-image-link {
+    margin-bottom: 0;
+  }
+
+  .page-style-1-1 .btn-contact {
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 44px;
+  }
+
+  .page-style-1-1 .btn-contact__icon svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .page-style-1-1 .btn-contact__label {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-style-1-1 .btn-contact {
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 36px;
+  }
+
+  .page-style-1-1 .btn-contact__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .page-style-1-1 .btn-contact__label {
+    font-size: 0.98rem;
+  }
+}
+
+.page-style-1-1 .btn-contact:hover .btn-contact__icon svg,
+.page-style-1-1 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-1-1 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-1-1 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}
+
+/* Achievements tables (Case 01 / 02): chỉ bảng scroll ngang; title giữ nguyên */
+@media (max-width: 767px) {
+  .page-style-1-1 .achievement-table-wrap {
+    overflow-x: visible;
+  }
+
+  .page-style-1-1 .achievement-table thead {
+    display: none;
+  }
+
+  .page-style-1-1 .achievement-table,
+  .page-style-1-1 .achievement-table tbody,
+  .page-style-1-1 .achievement-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .page-style-1-1 .achievement-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .page-style-1-1 .achievement-table td::before {
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .page-style-1-1 .achievement-table td:nth-child(1)::before { content: '業種'; }
+  .page-style-1-1 .achievement-table td:nth-child(2)::before { content: '採用人数（結果）'; }
+  .page-style-1-1 .achievement-table td:nth-child(3)::before { content: 'サービスプラン'; }
+  .page-style-1-1 .achievement-table td:nth-child(4)::before { content: 'プロジェクト期間'; }
+  .page-style-1-1 .achievement-table td:nth-child(5)::before { content: '依頼背景'; }
+}

@@ -1,0 +1,326 @@
+.page-style-1-5 .subservice-title-section { text-align: center; }
+.page-style-1-5 .subservice-title-section h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+.page-style-1-5 .subservice-title-section p.jp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.page-style-1-5 .feature-lead {
+  margin: 0 auto 10px;
+  max-width: 860px;
+  color: #333;
+  line-height: 1.85;
+  text-align: justify;
+}
+.page-style-1-5 .feature-points {
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 22px;
+  text-align: left;
+}
+.page-style-1-5 .feature-points li {
+  margin: 0 0 10px;
+  line-height: 1.8;
+}
+.page-style-1-5 .feature-points li:last-child { margin-bottom: 0; }
+
+/* Service Lineup style (match 1-1) */
+.page-style-1-5 .service-lineup-style { margin-top: 14px; }
+.page-style-1-5 .service-lineup-style h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.page-style-1-5 .service-lineup-style .jp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0 0 18px;
+  text-align: center;
+}
+.page-style-1-5 .service-lineup-style .lineup-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  background: #fff;
+}
+.page-style-1-5 .service-lineup-style .lineup-no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #1b1b1b;
+  border-right: 2px solid #1b1b1b;
+  border-bottom: 2px solid #1b1b1b;
+  line-height: 1;
+}
+.page-style-1-5 .service-lineup-style .lineup-content { min-width: 0; }
+.page-style-1-5 .service-lineup-style .lineup-head {
+  padding: 18px 20px 14px;
+  border-bottom: 2px solid #1b1b1b;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+}
+.page-style-1-5 .service-lineup-style .lineup-head h3 {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.page-style-1-5 .service-lineup-style .lineup-desc { padding: 16px 20px 18px; }
+.page-style-1-5 .service-lineup-style .lineup-list { margin: 0; padding-left: 0; list-style: none; }
+.page-style-1-5 .service-lineup-style .lineup-list li {
+  position: relative;
+  padding-left: 1.1em;
+  margin: 0 0 10px;
+  color: #2b2b2b;
+  line-height: 1.75;
+}
+.page-style-1-5 .service-lineup-style .lineup-list li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #111;
+}
+.page-style-1-5 .service-lineup-style .lineup-list li:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .page-style-1-5 .service-lineup-style .lineup-item {
+    grid-template-columns: 86px 1fr;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-content {
+    display: contents;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-no {
+    font-size: 2.6rem;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-bottom: 2px solid #1b1b1b;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-head {
+    grid-column: 2;
+    min-height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1b1b1b;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-head h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-desc {
+    grid-column: 1 / -1;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 12px;
+  }
+  .page-style-1-5 .service-lineup-style .lineup-list li {
+    line-height: 1.8;
+  }
+}
+
+/* Achievements (training results) */
+.page-style-1-5 .achievements {  }
+.page-style-1-5 .achievements h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+.page-style-1-5 .achievements .jp-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 0 18px;
+  color: #555;
+  font-weight: 500;
+}
+.page-style-1-5 .training-table-wrap { overflow-x: auto; }
+.page-style-1-5 .training-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.page-style-1-5 .training-table th,
+.page-style-1-5 .training-table td {
+  padding: 14px 14px;
+  vertical-align: top;
+  border: 1px solid #777;
+  color: #333;
+}
+.page-style-1-5 .training-table thead th {
+  font-weight: 800;
+  color: #fff;
+  background: #3a3a3a;
+}
+.page-style-1-5 .training-table tbody td {
+  background: #fff;
+}
+.page-style-1-5 .training-table tbody td:first-child {
+  background: #3a3a3a;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.page-style-1-5 .training-table th,
+.page-style-1-5 .training-table td {
+  word-break: break-word;
+}
+
+@media (max-width: 767px) {
+  .page-style-1-5 .training-table-wrap {
+    overflow-x: visible;
+  }
+
+  .page-style-1-5 .training-table thead {
+    display: none;
+  }
+
+  .page-style-1-5 .training-table,
+  .page-style-1-5 .training-table tbody,
+  .page-style-1-5 .training-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .page-style-1-5 .training-table tr {
+    margin: 0 0 12px;
+    background: #fff;
+  }
+
+  .page-style-1-5 .training-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    color: #333;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    box-sizing: border-box;
+    background: transparent;
+  }
+
+  .page-style-1-5 .training-table tbody td:first-child {
+    background: transparent;
+    color: #333;
+    font-weight: 400;
+    white-space: normal;
+  }
+
+  .page-style-1-5 .training-table td::before {
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .page-style-1-5 .training-table td:nth-child(1)::before { content: '業種'; }
+  .page-style-1-5 .training-table td:nth-child(2)::before { content: '対象人数'; }
+  .page-style-1-5 .training-table td:nth-child(3)::before { content: '研修形式'; }
+  .page-style-1-5 .training-table td:nth-child(4)::before { content: '結果・効果'; }
+}
+
+/* CTA contact button (Page 1-5) */
+.page-style-1-5 .subservice-cta {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-1-5 .subservice-cta > p {
+  margin: 0 0 14px;
+}
+
+.page-style-1-5 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-1-5 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.page-style-1-5 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-1-5 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-style-1-5 .btn-contact:hover .btn-contact__icon svg,
+.page-style-1-5 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-1-5 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-1-5 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}

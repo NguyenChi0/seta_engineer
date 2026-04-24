@@ -1,0 +1,266 @@
+.page-style-2-2 .service22-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 10px;
+}
+.page-style-2-2 .service22-title__mark {
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+.page-style-2-2 .subservice-subtitle {
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.page-style-2-2 .service22-intro p {
+  margin: 0 0 14px;
+  color: #333;
+  line-height: 1.85;
+  text-align: justify;
+}
+.page-style-2-2 .service22-intro p:last-child { margin-bottom: 0; }
+
+.page-style-2-2 .service22-lineup {
+  margin-top: 28px;
+}
+.page-style-2-2 .service22-lineup-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+.page-style-2-2 .service22-lineup-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Vertical line behind bullets (matches Achievements "導入事例・実績" style) */
+.page-style-2-2 .service22-lineup-list::before {
+  content: none;
+}
+.page-style-2-2 .service22-lineup-list li {
+  position: relative;
+  margin: 0 0 10px;
+  color: #fff;
+  line-height: 1.75;
+  background-color: #ca1d1d;
+  padding: 14px 30px 14px 42px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.04);
+  clip-path: polygon(0 0, 100% 0, 86% 50%, 100% 100%, 0 100%);
+  transform-origin: center center;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.page-style-2-2 .service22-lineup-list li::before {
+  content: none;
+}
+
+/* Horizontal accent line (like Achievements h3::before) */
+.page-style-2-2 .service22-lineup-list li::after {
+  /* no extra accent line on red card */
+  content: none;
+}
+.page-style-2-2 .service22-lineup-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,.12);
+}
+.page-style-2-2 .service22-lineup-list li:last-child { margin-bottom: 0; }
+
+/* Achievements table (match service-2-1 style) */
+.page-style-2-2 .achievements {
+  margin-top: 40px;
+}
+.page-style-2-2 .achievements h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.page-style-2-2 .achievements .jp-subtitle {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #555;
+}
+.page-style-2-2 .achievement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+.page-style-2-2 .achievement-table th,
+.page-style-2-2 .achievement-table td {
+  border: 1px solid #777;
+  padding: 8px 10px;
+  vertical-align: top;
+}
+.page-style-2-2 .achievement-table th {
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: left;
+}
+.page-style-2-2 .achievement-table td {
+  background: #fff;
+  color: #111;
+  font-size: 0.93rem;
+}
+.page-style-2-2 .achievement-table tbody td:first-child {
+  background: #3a3a3a;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Achievements table (mobile): turn table into text blocks */
+@media (max-width: 767px) {
+  .page-style-2-2 .achievement-table thead {
+    display: none;
+  }
+
+  .page-style-2-2 .achievement-table,
+  .page-style-2-2 .achievement-table tbody,
+  .page-style-2-2 .achievement-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .page-style-2-2 .achievement-table td {
+    display: block;
+    width: 100%;
+    border: none;
+    color: #333;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    box-sizing: border-box;
+    background: transparent;
+  }
+
+  .page-style-2-2 .achievement-table tbody td:first-child {
+    background: transparent;
+    color: #333;
+    font-weight: 400;
+    white-space: normal;
+  }
+
+  .page-style-2-2 .achievement-table td::before {
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .page-style-2-2 .achievement-table td:nth-child(1)::before { content: '分野'; }
+  .page-style-2-2 .achievement-table td:nth-child(2)::before { content: 'プロジェクト'; }
+  .page-style-2-2 .achievement-table td:nth-child(3)::before { content: '対応内容'; }
+  .page-style-2-2 .achievement-table td:nth-child(4)::before { content: '成果'; }
+}
+
+/* Closing paragraph */
+.page-style-2-2 .service22-closing {
+  margin-top: 22px;
+}
+.page-style-2-2 .service22-closing p {
+  margin: 0 auto;
+  max-width: 860px;
+  color: #333;
+  line-height: 1.85;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* CTA contact button (Page 2-2) */
+.page-style-2-2 .subservice-cta {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-style-2-2 .subservice-cta > p {
+  margin: 0 0 14px;
+}
+
+.page-style-2-2 .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 14px 30px;
+  border: 2px solid #ca1d1d;
+  background: #fff;
+  color: #ca1d1d;
+  border-radius: 70px;
+}
+
+.page-style-2-2 .btn-contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.page-style-2-2 .btn-contact__icon svg {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 auto;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.page-style-2-2 .btn-contact__label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-style-2-2 .btn-contact:hover .btn-contact__icon svg,
+.page-style-2-2 .btn-contact:focus-visible .btn-contact__icon svg {
+  animation: bell-swing 0.65s ease-in-out infinite;
+}
+
+.page-style-2-2 .btn-contact:hover {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+.page-style-2-2 .btn-contact:focus-visible {
+  background: #ca1d1d;
+  color: #fff;
+  border-color: #ca1d1d;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(-14deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-14deg);
+  }
+}

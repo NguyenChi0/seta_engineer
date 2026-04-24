@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/*=======================================================*/
+/* HOME SERVICE LINEUP (scoped)                       */
+/*=======================================================*/
+
+.home-service-section .service-cards-wrapper {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.home-service-section .service-cards {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 14px !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-service-section .service-card {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid #ca1d1d;
+  border-radius: 10px;
+  background-color: #fff !important;
+  overflow: hidden;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.35s ease;
+}
+
+.home-service-section .service-card a {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  color: #ca1d1d;
+  text-decoration: none;
+  text-align: left !important;
+  padding: 14px 18px 12px !important;
+  box-sizing: border-box;
+}
+
+.home-service-section .service-card .shown-text {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0 !important;
+  text-align: left !important;
+  width: 100%;
+}
+
+.home-service-section .service-card .service-card__en {
+  display: block !important;
+  font-size: 1.2rem;
+  /* Make the English service title look like a heading */
+  font-weight: 700;
+  line-height: 1.25;
+  min-height: calc(1em * 1.25 * 2);
+  color: #ca1d1d;
+  /* Respect explicit line breaks from the string (e.g. "&\n") */
+  white-space: pre-line;
+  text-align: left !important;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+.home-service-section .service-card .service-card__jp {
+  display: block !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #ca1d1d;
+  opacity: 0.92;
+  text-align: left !important;
+}
+
+.home-service-section .service-card .btn-read-more {
+  margin-top: 10px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.home-service-section .service-card .btn__text {
+  color: #ca1d1d !important;
+  font-weight: 400 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.02em;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+.home-service-section .service-card .btn__icon {
+  display: none !important; /* no arrow icon */
+}
+
+.home-service-section .service-card:hover {
+  cursor: pointer;
+  background-color: #ca1d1d !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.home-service-section .service-card:hover .service-card__en,
+.home-service-section .service-card:hover .service-card__jp,
+.home-service-section .service-card:hover .btn__text {
+  color: #fff !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .home-service-section .service-cards {
+    gap: 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-service-section .service-cards {
+    grid-template-columns: 1fr;
+    gap: 10px !important;
+  }
+  .home-service-section .service-card {
+    height: auto !important;
+  }
+}
