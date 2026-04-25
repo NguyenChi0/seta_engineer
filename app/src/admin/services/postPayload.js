@@ -1,9 +1,11 @@
+import { normalizeApiAssetPath, normalizeApiAssetPathsInHtml } from '../../utils/assetUrl'
+
 export function buildPostPayload(formData) {
   const title = formData.title.trim()
   const excerpt = formData.excerpt.trim()
   const tags = (formData.category || formData.tags || '').trim()
-  const titleImage = (formData.titleImage || '').trim()
-  const contentHtml = formData.contentHtml.trim()
+  const titleImage = normalizeApiAssetPath(formData.titleImage || '')
+  const contentHtml = normalizeApiAssetPathsInHtml(formData.contentHtml.trim())
 
   return {
     title,

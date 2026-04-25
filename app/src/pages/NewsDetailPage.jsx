@@ -2,6 +2,7 @@ import { useLayoutEffect, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import HtmlContent from '../components/HtmlContent'
 import { getPostDetail } from '../api'
+import { resolveApiAssetUrl, resolveApiAssetUrlsInHtml } from '../utils/assetUrl'
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
 const CSS = `${BASE}/assets/news-detail-page.css`
@@ -43,8 +44,9 @@ export default function NewsDetailPage() {
               ).padStart(2, '0')}`
             : ''
         const imageHtml = post.titleImage
-          ? `<div class="news-article__hero"><img src="${String(post.titleImage)}" alt="${String(post.title || '')}" /></div>`
+          ? `<div class="news-article__hero"><img src="${resolveApiAssetUrl(post.titleImage)}" alt="${String(post.title || '')}" /></div>`
           : ''
+        const safeContentHtml = resolveApiAssetUrlsInHtml(String(post.content || ''))
         const htmlDoc =
           '<main class="news-detail-page"><article class="news-article">' +
           `<h1 class="news-article__title" style="text-align:center;">${String(post.title || '')}</h1>` +
@@ -53,7 +55,7 @@ export default function NewsDetailPage() {
           `<time class="news-article__created-time" style="font-size:14px;color:#6b7280;line-height:1.2;text-align:center;">${dateText}</time>` +
           '</div>' +
           imageHtml +
-          `<div class="news-article__content">${String(post.content || '')}</div>` +
+          `<div class="news-article__content">${safeContentHtml}</div>` +
           '</article></main>'
         setHtml(htmlDoc)
       })

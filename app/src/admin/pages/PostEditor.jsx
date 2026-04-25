@@ -10,6 +10,7 @@ import {
   uploadAdminTitleImage
 } from '../../api'
 import { buildPostPayload, validatePostForm } from '../services/postPayload'
+import { resolveApiAssetUrl, resolveApiAssetUrlsInHtml } from '../../utils/assetUrl'
 
 const accent = '#034a5a'
 const IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp,image/gif'
@@ -239,7 +240,9 @@ function PostEditor({ mode }) {
   const previewTag = formData.category?.trim() || 'お知らせ'
   const previewTitle = formData.title?.trim() || 'Tiêu đề bài viết sẽ hiển thị ở đây'
   
-  const previewContent = formData.contentHtml?.trim() || '<p>Nội dung rich text sẽ hiển thị ở đây.</p>'
+  const previewContent = resolveApiAssetUrlsInHtml(
+    formData.contentHtml?.trim() || '<p>Nội dung rich text sẽ hiển thị ở đây.</p>'
+  )
 
   return (
     <section style={{ color: '#111827', fontFamily: '"Montserrat", "Noto Sans JP", sans-serif' }}>
@@ -320,7 +323,7 @@ function PostEditor({ mode }) {
           {errors.titleImage ? <span style={{ color: '#b91c1c', fontSize: '13px' }}>{errors.titleImage}</span> : null}
           {formData.titleImage ? (
             <img
-              src={formData.titleImage}
+              src={resolveApiAssetUrl(formData.titleImage)}
               alt="Anh tieu de"
               style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'cover', borderRadius: '6px' }}
             />
@@ -427,7 +430,7 @@ function PostEditor({ mode }) {
           {formData.titleImage ? (
             <div style={{ marginBottom: 14 }}>
               <img
-                src={formData.titleImage}
+                src={resolveApiAssetUrl(formData.titleImage)}
                 alt="Cover preview"
                 style={{ width: '100%', maxHeight: isMobile ? 220 : 320, objectFit: 'cover', borderRadius: '8px' }}
               />

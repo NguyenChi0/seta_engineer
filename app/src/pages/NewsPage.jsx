@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import NewsCardItem from '../components/news/NewsCardItem'
 import { getPosts } from '../api'
+import { resolveApiAssetUrl } from '../utils/assetUrl'
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
 const CSS = `${BASE}/assets/top.css`
@@ -61,7 +62,7 @@ export default function NewsPage() {
           datetime: isValid ? d.toISOString().slice(0, 10) : '',
           title: post.title || '',
           excerpt: post.excerpt || '',
-          image: post.titleImage || ''
+          image: resolveApiAssetUrl(post.titleImage || '')
         }
       }),
     [posts]
