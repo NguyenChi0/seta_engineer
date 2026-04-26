@@ -6,6 +6,7 @@ const accent = '#034a5a'
 const accentSoft = 'rgba(3, 74, 90, 0.1)'
 const iconStroke = 1.75
 const MOBILE_BREAKPOINT = 900
+const POSTS_PER_PAGE = 7
 
 function IconSvg({ children, size = 22, className, title, ...rest }) {
   return (
@@ -116,6 +117,7 @@ function AdminPost() {
   const [error, setError] = useState('')
   const [searchInput, setSearchInput] = useState('')
   const [searchQ, setSearchQ] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= MOBILE_BREAKPOINT)
 
   useEffect(() => {
@@ -143,6 +145,16 @@ function AdminPost() {
   useEffect(() => {
     load(searchQ)
   }, [load, searchQ])
+
+  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE))
+  const safePage = Math.min(currentPage, totalPages)
+  const paginatedPosts = posts.slice((safePage - 1) * POSTS_PER_PAGE, safePage * POSTS_PER_PAGE)
+
+  useEffect(() => {
+    if (currentPage !== safePage) {
+      setCurrentPage(safePage)
+    }
+  }, [currentPage, safePage])
 
   const handleDelete = async (post) => {
     if (!window.confirm(`Xoa bai viet "${post.title}"?`)) {
@@ -261,6 +273,7 @@ function AdminPost() {
         onSubmit={(e) => {
           e.preventDefault()
           setSearchQ(searchInput.trim())
+          setCurrentPage(1)
         }}
         style={{
           marginTop: '18px',
@@ -327,12 +340,12 @@ function AdminPost() {
         <p style={{ marginTop: 16, color: '#6b7280' }}>Đang tải…</p>
       ) : isMobile ? (
         <div style={{ marginTop: 16, display: 'grid', gap: 12 }}>
-          {posts.length === 0 ? (
+          {paginatedPosts.length === 0 ? (
             <div style={{ padding: 16, color: '#6b7280', border: '1px solid #e5e7eb', borderRadius: 12, background: '#fff' }}>
               Không có bản ghi nào phù hợp.
             </div>
           ) : (
-            posts.map((post) => (
+            paginatedPosts.map((post) => (
               <article
                 key={post.id}
                 style={{
@@ -441,10 +454,10 @@ function AdminPost() {
             <div style={{ textAlign: 'center' }}>Thao tác</div>
           </div>
 
-          {posts.length === 0 ? (
+          {paginatedPosts.length === 0 ? (
             <div style={{ padding: 24, color: '#6b7280' }}>Không có bản ghi nào phù hợp.</div>
           ) : (
-            posts.map((post, index) => (
+            paginatedPosts.map((post, index) => (
               <div
                 key={post.id}
                 style={{
@@ -452,7 +465,7 @@ function AdminPost() {
                   gridTemplateColumns: '90px 2fr 140px 150px 170px',
                   gap: '8px',
                   padding: '14px 16px',
-                  borderBottom: index === posts.length - 1 ? 'none' : '1px solid #e5e7eb',
+                  borderBottom: index === paginatedPosts.length - 1 ? 'none' : '1px solid #e5e7eb',
                   fontSize: '15px',
                   alignItems: 'center'
                 }}
@@ -507,6 +520,74 @@ function AdminPost() {
           )}
         </div>
       )}
+
+      {!loading && posts.length > 0 ? (
+        <div
+          style={{
+            marginTop: 14,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 10,
+            flexWrap: 'wrap'
+          }}
+        >
+          <div style={{ color: '#6b7280', fontSize: 14 }}>
+            Trang {safePage}/{totalPages} ({posts.length} bài)
+          </div>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={safePage === 1}
+              style={{
+                border: '1px solid #d1d5db',
+                background: safePage === 1 ? '#f3f4f6' : '#fff',
+                color: '#111827',
+                borderRadius: 8,
+                padding: '6px 10px',
+                cursor: safePage === 1 ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Prev
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                type="button"
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  border: `1px solid ${page === safePage ? accent : '#d1d5db'}`,
+                  background: page === safePage ? accent : '#fff',
+                  color: page === safePage ? '#fff' : '#111827',
+                  borderRadius: 8,
+                  minWidth: 34,
+                  padding: '6px 10px',
+                  cursor: 'pointer',
+                  fontWeight: page === safePage ? 700 : 500
+                }}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={safePage === totalPages}
+              style={{
+                border: '1px solid #d1d5db',
+                background: safePage === totalPages ? '#f3f4f6' : '#fff',
+                color: '#111827',
+                borderRadius: 8,
+                padding: '6px 10px',
+                cursor: safePage === totalPages ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }

@@ -37,6 +37,18 @@
   margin: 0 0 14px;
 }
 
+.news-article__hero {
+  width: 100%;
+  margin: 0 0 28px;
+}
+
+.news-article__hero img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .news-article__lead {
   font-size: 1rem;
   font-weight: 700;
@@ -144,5 +156,13 @@
   }
   .news-article__title {
     font-size: 1.4rem;
+  }
+
+  .news-article__hero {
+    margin-bottom: 20px;
+  }
+
+  .news-article__hero img {
+    border-radius: 0;
   }
 }

@@ -264,9 +264,6 @@ function PostEditor({ mode }) {
           <h2 style={{ margin: 0, fontSize: isMobile ? '28px' : '34px', lineHeight: 1.2, color: accent }}>
             {isEdit ? 'Sửa bài viết' : 'Tạo bài viết mới'}
           </h2>
-          <p style={{ margin: '8px 0 0', color: '#6b7280', fontSize: isMobile ? 14 : 16 }}>
-            Rich text lưu HTML; ảnh trong nội dung tải lên server; ảnh tiêu đề lưu vào thư mục riêng.
-          </p>
         </div>
         <Link
           to="/admin/posts"
