@@ -1,0 +1,20 @@
+diff --git a/node_modules/react-quill/lib/index.js b/node_modules/react-quill/lib/index.js
+index b77e914..8c09345 100644
+--- a/node_modules/react-quill/lib/index.js
++++ b/node_modules/react-quill/lib/index.js
+@@ -320,6 +320,15 @@ var ReactQuill = /** @class */ (function (_super) {
+         if (!this.editingArea) {
+             throw new Error('Instantiating on missing editing area');
+         }
++        var host = this.editingArea;
++        if (host && typeof host.nodeType === 'number') {
++            if (host.nodeType === 3) {
++                throw new Error('Editing area cannot be a text node');
++            }
++            if (host.nodeType === 1) {
++                return host;
++            }
++        }
+         var element = react_dom_1.default.findDOMNode(this.editingArea);
+         if (!element) {
+             throw new Error('Cannot find element for editing area');

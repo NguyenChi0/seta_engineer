@@ -15,4 +15,4 @@ export const newsItems = [
 ]
 
 /** Max items on the home “News” section (preview). */
-export const HOME_NEWS_PREVIEW_COUNT = 1
+export const HOME_NEWS_PREVIEW_COUNT = 3

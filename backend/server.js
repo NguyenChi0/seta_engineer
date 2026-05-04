@@ -450,12 +450,25 @@ function toPostListDto(row) {
   }
 }
 
+function sqlContentToUtf8(value) {
+  if (value == null) {
+    return ''
+  }
+  if (Buffer.isBuffer(value)) {
+    return value.toString('utf8')
+  }
+  if (typeof value === 'string') {
+    return value
+  }
+  return String(value)
+}
+
 function toPostDetailDto(row) {
   const created = row.created_at
   return {
     id: row.id,
     title: row.title,
-    content: row.content || '',
+    content: sqlContentToUtf8(row.content) || '',
     tags: row.tags || '',
     excerpt: row.excerpt || '',
     titleImage: row.title_image || null,

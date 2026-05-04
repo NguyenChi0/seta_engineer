@@ -1,7 +1,20 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import ReactQuill from 'react-quill'
+import QuillResizeImage from 'quill-resize-image'
 import 'react-quill/dist/quill.snow.css'
+
+// Quill 2: theme loads modules with `new Module(quill, opts)` — quill-resize-image is a factory, not a class.
+// Phải register trên ReactQuill.Quill (cùng constructor editor dùng), không phải import Quill riêng.
+const Quill = ReactQuill.Quill
+const BaseModule = Quill.import('core/module')
+class ResizeImageModule extends BaseModule {
+  constructor(quill, options) {
+    super(quill, options ?? {})
+    QuillResizeImage(quill, options ?? {})
+  }
+}
+Quill.register('modules/resize', ResizeImageModule, true)
 import {
   getAdminPost,
   patchAdminPost,
@@ -15,6 +28,24 @@ import { resolveApiAssetUrl, resolveApiAssetUrlsInHtml } from '../../utils/asset
 const accent = '#034a5a'
 const IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp,image/gif'
 const MOBILE_BREAKPOINT = 900
+
+/** API / MySQL có thể trả content dạng Buffer (JSON) — chuẩn hóa thành chuỗi HTML cho ReactQuill. */
+function normalizeAdminPostHtml(raw) {
+  if (raw == null) {
+    return ''
+  }
+  if (typeof raw === 'string') {
+    return raw
+  }
+  if (typeof raw === 'object' && raw.type === 'Buffer' && Array.isArray(raw.data)) {
+    try {
+      return new TextDecoder('utf-8', { fatal: false }).decode(new Uint8Array(raw.data))
+    } catch {
+      return ''
+    }
+  }
+  return String(raw)
+}
 
 function formatPreviewDate(value) {
   const d = value ? new Date(value) : new Date()
@@ -48,6 +79,8 @@ function PostEditor({ mode }) {
   const [loadingPost, setLoadingPost] = useState(isEdit)
   const [titleFileBusy, setTitleFileBusy] = useState(false)
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= MOBILE_BREAKPOINT)
+  /** Tăng sau mỗi lần tải xong bài (edit) để ReactQuill remount với đúng HTML — tránh editor trống khi value async. */
+  const [quillMountEpoch, setQuillMountEpoch] = useState(0)
 
   useEffect(() => {
     const onResize = () => {
@@ -55,6 +88,50 @@ function PostEditor({ mode }) {
     }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  useLayoutEffect(() => {
+    const style = document.createElement('style')
+    style.setAttribute('data-admin-post-editor', 'true')
+    style.textContent = `
+      .admin-post-editor, .admin-post-editor * , .admin-post-editor *::before, .admin-post-editor *::after {
+        box-sizing: border-box;
+      }
+      .admin-post-editor input,
+      .admin-post-editor textarea,
+      .admin-post-editor .ql-toolbar,
+      .admin-post-editor .ql-container {
+        max-width: 100%;
+      }
+      .admin-post-editor .ql-toolbar.ql-snow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .admin-post-editor .ql-toolbar.ql-snow .ql-formats {
+        margin-right: 0;
+      }
+      .admin-post-editor .ql-editor img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+      .admin-post-editor .admin-post-preview-body img {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 900px) {
+        .admin-post-editor input[type="file"] {
+          width: 100%;
+          min-width: 0;
+        }
+        .admin-post-editor .ql-toolbar.ql-snow {
+          padding: 8px;
+        }
+      }
+    `
+    document.head.appendChild(style)
+    return () => style.remove()
   }, [])
 
   useEffect(() => {
@@ -78,13 +155,15 @@ function PostEditor({ mode }) {
         if (cancelled || !post) {
           return
         }
+        const contentHtml = normalizeAdminPostHtml(post.content)
         setFormData({
           title: post.title || '',
           category: post.tags || '',
           excerpt: post.excerpt || '',
           titleImage: post.titleImage || '',
-          contentHtml: post.content || ''
+          contentHtml
         })
+        setQuillMountEpoch((n) => n + 1)
       } catch (e) {
         if (!cancelled) {
           setLoadError(e?.message || 'Khong tai duoc bai viet')
@@ -99,6 +178,26 @@ function PostEditor({ mode }) {
       cancelled = true
     }
   }, [isEdit, postId])
+
+  /** Quill 2 + react-quill: setContents(clipboard.convert) đôi khi để editor trống dù HTML hợp lệ; preview vẫn render raw HTML. */
+  useLayoutEffect(() => {
+    if (!isEdit || loadingPost) {
+      return
+    }
+    const html = (formData.contentHtml || '').trim()
+    if (!html) {
+      return
+    }
+    const quill = quillRef.current?.getEditor?.()
+    if (!quill) {
+      return
+    }
+    const textLen = quill.getText().replace(/\u00a0/g, ' ').replace(/\s+/g, '').length
+    const htmlTextLen = html.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length
+    if (htmlTextLen > 0 && textLen === 0) {
+      quill.clipboard.dangerouslyPasteHTML(html)
+    }
+  }, [isEdit, loadingPost, postId, quillMountEpoch, formData.contentHtml])
 
   const imageHandler = useCallback(() => {
     const input = document.createElement('input')
@@ -140,24 +239,34 @@ function PostEditor({ mode }) {
         handlers: {
           image: imageHandler
         }
+      },
+      resize: {
+        locale: {
+          altTip: 'Giữ Alt để khóa tỷ lệ',
+          inputTip: 'Nhấn Enter để áp dụng kích thước'
+        }
       }
     }),
     [imageHandler]
   )
 
-  const quillFormats = [
-    'header',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'list',
-    'bullet',
-    'blockquote',
-    'code-block',
-    'link',
-    'image'
-  ]
+  // Quill 2: không có format "bullet" — chỉ "list" (toolbar { list: 'bullet' } vẫn dùng được)
+  // Giữ reference ổn định — `formats` là dirtyProp của react-quill, mảng mới mỗi render dễ gây reinstantiate / lệch nội dung.
+  const quillFormats = useMemo(
+    () => [
+      'header',
+      'bold',
+      'italic',
+      'underline',
+      'strike',
+      'list',
+      'blockquote',
+      'code-block',
+      'link',
+      'image'
+    ],
+    []
+  )
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
@@ -245,7 +354,7 @@ function PostEditor({ mode }) {
   )
 
   return (
-    <section style={{ color: '#111827', fontFamily: '"Montserrat", "Noto Sans JP", sans-serif' }}>
+    <section className="admin-post-editor" style={{ color: '#111827', fontFamily: '"Montserrat", "Noto Sans JP", sans-serif', minWidth: 0 }}>
       <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>
         Quản lý bài viết &nbsp;›&nbsp; {isEdit ? 'Sửa bài viết' : 'Tạo bài viết mới'}
       </div>
@@ -282,7 +391,7 @@ function PostEditor({ mode }) {
               value={formData.title}
               onChange={handleInputChange}
               placeholder="Nhap tieu de bai viet"
-              style={{ border: '1px solid #d1d5db', borderRadius: '8px', height: '42px', padding: '0 12px' }}
+              style={{ border: '1px solid #d1d5db', borderRadius: '8px', height: '42px', padding: '0 12px', width: '100%', minWidth: 0 }}
             />
             {errors.title ? <span style={{ color: '#b91c1c', fontSize: '13px' }}>{errors.title}</span> : null}
           </label>
@@ -294,7 +403,7 @@ function PostEditor({ mode }) {
               value={formData.category}
               onChange={handleInputChange}
               placeholder="Tin cong ty / Blog / Su kien"
-              style={{ border: '1px solid #d1d5db', borderRadius: '8px', height: '42px', padding: '0 12px' }}
+              style={{ border: '1px solid #d1d5db', borderRadius: '8px', height: '42px', padding: '0 12px', width: '100%', minWidth: 0 }}
             />
             {errors.category ? <span style={{ color: '#b91c1c', fontSize: '13px' }}>{errors.category}</span> : null}
           </label>
@@ -308,14 +417,14 @@ function PostEditor({ mode }) {
             onChange={handleInputChange}
             rows={3}
             placeholder="Tom tat ngan cho the tin va trang danh sach"
-            style={{ border: '1px solid #d1d5db', borderRadius: '8px', padding: '10px 12px' }}
+            style={{ border: '1px solid #d1d5db', borderRadius: '8px', padding: '10px 12px', width: '100%', minWidth: 0 }}
           />
           {errors.excerpt ? <span style={{ color: '#b91c1c', fontSize: '13px' }}>{errors.excerpt}</span> : null}
         </label>
 
         <div style={{ display: 'grid', gap: '6px' }}>
           <span>Ảnh tiêu đề (tải file)</span>
-          <input type="file" accept={IMAGE_ACCEPT} onChange={handleTitleFile} disabled={titleFileBusy} />
+          <input type="file" accept={IMAGE_ACCEPT} onChange={handleTitleFile} disabled={titleFileBusy} style={{ maxWidth: '100%' }} />
           {titleFileBusy ? <span style={{ fontSize: '13px', color: '#6b7280' }}>Đang tải ảnh…</span> : null}
           {errors.titleImage ? <span style={{ color: '#b91c1c', fontSize: '13px' }}>{errors.titleImage}</span> : null}
           {formData.titleImage ? (
@@ -331,6 +440,7 @@ function PostEditor({ mode }) {
           <span>Nội dung bài viết (Rich Text)</span>
           <div style={{ marginBottom: '6px' }}>
             <ReactQuill
+              key={isEdit ? `admin-post-quill-${postId}-${quillMountEpoch}` : 'admin-post-quill-create'}
               ref={quillRef}
               theme="snow"
               value={formData.contentHtml}
@@ -434,7 +544,7 @@ function PostEditor({ mode }) {
             </div>
           ) : null}
           
-          <div dangerouslySetInnerHTML={{ __html: previewContent }} />
+          <div className="admin-post-preview-body" dangerouslySetInnerHTML={{ __html: previewContent }} />
         </article>
       </div>
     </section>
