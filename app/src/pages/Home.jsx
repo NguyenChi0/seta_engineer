@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useRevealInViewport } from '../hooks/useRevealInViewport'
 import { HOME_NEWS_PREVIEW_COUNT } from '../data/newsItems'
 import { getPosts } from '../api'
+import './homeNewsCompact.css'
 
 const ASSETS = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + 'assets/'
 
@@ -35,7 +36,7 @@ function KeyVisual() {
         />
       </div>
       <div className="sp">
-        <img src={`${ASSETS}kv_movie_sp.jpg`} alt="Seta Engineering" fetchPriority="high" />
+        <img src={`${ASSETS}kv_movie_sp.jpg`} alt="Seta Engineering" fetchpriority="high" />
         <video
           ref={spVideoRef}
           src={`${ASSETS}homevid_mobile.mp4`}

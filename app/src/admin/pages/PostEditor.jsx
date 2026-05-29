@@ -55,6 +55,29 @@ function formatPreviewDate(value) {
   return `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
 }
 
+function extractHtmlFromRaw(raw) {
+  const text = String(raw || '')
+  if (!text.trim()) return ''
+
+  // Nếu file là full page HTML thì lấy phần trong <body>; còn nếu là snippet thì body.innerHTML vẫn chạy được.
+  try {
+    const doc = new DOMParser().parseFromString(text, 'text/html')
+    const bodyHtml = doc?.body?.innerHTML
+    if (bodyHtml && bodyHtml.trim()) {
+      return bodyHtml
+    }
+  } catch {
+    // ignore
+  }
+
+  return text
+}
+
+function stripUnsafeHtml(html) {
+  // Chặn script để giảm rủi ro khi import từ nguồn không tin cậy.
+  return String(html || '').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '')
+}
+
 /**
  * @param {{ mode: 'create' | 'edit' }} props
  */
@@ -78,6 +101,7 @@ function PostEditor({ mode }) {
   const [saving, setSaving] = useState(false)
   const [loadingPost, setLoadingPost] = useState(isEdit)
   const [titleFileBusy, setTitleFileBusy] = useState(false)
+  const [importHtmlBusy, setImportHtmlBusy] = useState(false)
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= MOBILE_BREAKPOINT)
   /** Tăng sau mỗi lần tải xong bài (edit) để ReactQuill remount với đúng HTML — tránh editor trống khi value async. */
   const [quillMountEpoch, setQuillMountEpoch] = useState(0)
@@ -279,6 +303,29 @@ function PostEditor({ mode }) {
     setErrors((prev) => ({ ...prev, contentHtml: '' }))
   }
 
+  const handleImportHtmlFile = async (event) => {
+    const file = event.target.files?.[0]
+    // reset input để cùng 1 file có thể import lại
+    event.target.value = ''
+    if (!file || importHtmlBusy) return
+
+    setImportHtmlBusy(true)
+    setErrors((prev) => ({ ...prev, contentHtml: '' }))
+
+    try {
+      const raw = await file.text()
+      const extracted = extractHtmlFromRaw(raw)
+      const safeHtml = stripUnsafeHtml(extracted)
+
+      setFormData((prev) => ({ ...prev, contentHtml: safeHtml }))
+      setQuillMountEpoch((n) => n + 1) // đảm bảo ReactQuill remount với đúng HTML mới
+    } catch (e) {
+      window.alert(e?.message || 'Import HTML that bai')
+    } finally {
+      setImportHtmlBusy(false)
+    }
+  }
+
   const handleTitleFile = async (event) => {
     const file = event.target.files?.[0]
     event.target.value = ''
@@ -438,6 +485,16 @@ function PostEditor({ mode }) {
 
         <div style={{ display: 'grid', gap: '6px' }}>
           <span>Nội dung bài viết (Rich Text)</span>
+          <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            <input
+              type="file"
+              accept=".html,.htm,.txt,text/html,text/plain"
+              onChange={handleImportHtmlFile}
+              disabled={importHtmlBusy}
+              style={{ maxWidth: '100%' }}
+            />
+            {importHtmlBusy ? <span style={{ fontSize: '13px', color: '#6b7280' }}>Đang import…</span> : null}
+          </div>
           <div style={{ marginBottom: '6px' }}>
             <ReactQuill
               key={isEdit ? `admin-post-quill-${postId}-${quillMountEpoch}` : 'admin-post-quill-create'}
