@@ -1,13 +1,17 @@
 @charset "utf-8";
 
 .news-detail-page {
+  width: 100%;
+  box-sizing: border-box;
   padding: 60px 20px 80px;
   margin-top: 170px;
 }
 
 .news-article {
+  width: 100%;
   max-width: 880px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 16px;
@@ -15,12 +19,115 @@
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
 }
 
+.news-article__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 22px;
+}
+
+.news-article__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #d82323;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.news-article__created-time {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.news-article__loading {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px 0;
+}
+
+.news-article__content h1,
+.news-article__content h2,
+.news-article__content h3 {
+  font-weight: 800;
+  line-height: 1.35;
+  color: #111;
+  margin: 1.4em 0 0.6em;
+}
+
+.news-article__content h1 { font-size: 1.6rem; }
+.news-article__content h2 { font-size: 1.35rem; }
+.news-article__content h3 { font-size: 1.15rem; }
+
+.news-article__content p {
+  margin: 0 0 1em;
+  line-height: 1.85;
+}
+
+.news-article__content ul,
+.news-article__content ol {
+  margin: 0 0 1em;
+  padding-left: 1.5em;
+  line-height: 1.85;
+}
+
+.news-article__content blockquote {
+  margin: 1em 0;
+  padding: 12px 18px;
+  border-left: 4px solid #ca1d1d;
+  background: #f9fafb;
+  color: #444;
+}
+
+.news-article__content pre,
+.news-article__content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.news-article__content pre {
+  margin: 1em 0;
+  padding: 14px;
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.news-article__content a {
+  color: #034a5a;
+  text-decoration: underline;
+}
+
+.news-article__content iframe,
+.news-article__content video {
+  max-width: 100%;
+  display: block;
+  margin: 1em auto;
+}
+
 .news-article__header {
   text-align: center;
-  margin-bottom: 36px;
-  padding-bottom: 28px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #e0e0e0;
+  position: static;
+  width: auto;
+  z-index: auto;
 }
+
+.news-article__title {
+  text-align: center;
+}
+
 
 .news-article__date {
   display: inline-block;
@@ -59,6 +166,17 @@
 .news-article__body {
   color: #333;
   line-height: 1.85;
+}
+
+.news-article__content {
+  color: #333;
+  line-height: 1.85;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.news-article__content > * {
+  max-width: 100%;
 }
 
 /* Force all rendered DB HTML to use Montserrat */

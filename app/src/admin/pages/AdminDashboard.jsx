@@ -10,6 +10,8 @@ function AdminDashboard() {
         <Link to="/admin/account">Quản lý tài khoản</Link>
         <Link to="/admin/posts">Danh sách bài viết</Link>
         <Link to="/admin/posts/create">Tạo bài viết</Link>
+        <Link to="/admin/landing-pages">Landing pages</Link>
+        <Link to="/admin/landing-pages/create">Tạo landing page</Link>
       </div>
     </section>
   )

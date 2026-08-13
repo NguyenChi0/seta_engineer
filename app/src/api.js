@@ -65,8 +65,14 @@ export async function getPosts({ q, limit, offset } = {}) {
   return data
 }
 
-export async function getPostDetail(id) {
-  const response = await fetch(buildUrl(`/api/posts/${id}`), { method: 'GET' })
+export async function getPostDetail(idOrSlug) {
+  const key = String(idOrSlug || '').trim()
+  if (!key) {
+    throw new Error('Thieu id hoac slug')
+  }
+  const isNumericId = /^\d+$/.test(key)
+  const path = isNumericId ? `/api/posts/${key}` : `/api/posts/by-slug/${encodeURIComponent(key)}`
+  const response = await fetch(buildUrl(path), { method: 'GET' })
   const data = await readResponseBodyAsJsonOrHint(response)
   if (!response.ok) {
     const detail = [data?.message, data?.code && `(${data.code})`].filter(Boolean).join(' ').trim()
@@ -186,4 +192,55 @@ export async function uploadAdminTitleImage(file) {
   const fd = new FormData()
   fd.append('file', file)
   return apiFetchWithAuth('/api/admin/uploads/title-image', { method: 'POST', body: fd })
+}
+
+export async function getAdminMedia({ kind = 'all' } = {}) {
+  const p = new URLSearchParams()
+  if (kind && kind !== 'all') {
+    p.set('kind', kind)
+  }
+  const qs = p.toString() ? `?${p.toString()}` : ''
+  return apiFetchWithAuth(`/api/admin/media${qs}`, { method: 'GET' })
+}
+
+export async function patchAdminMedia(id, payload) {
+  return apiFetchWithAuth(`/api/admin/media/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload)
+  })
+}
+
+export async function getLandingPage(slug) {
+  const response = await fetch(buildUrl(`/api/landing-pages/${encodeURIComponent(slug)}`), { method: 'GET' })
+  const data = await readResponseBodyAsJsonOrHint(response)
+  if (!response.ok) {
+    const detail = [data?.message, data?.code && `(${data.code})`].filter(Boolean).join(' ').trim()
+    throw new Error(detail || `Loi ${response.status}`)
+  }
+  return data
+}
+
+export async function getAdminLandingPages({ q } = {}) {
+  const p = new URLSearchParams()
+  if (q != null && String(q).trim()) {
+    p.set('q', String(q).trim())
+  }
+  const qs = p.toString() ? `?${p.toString()}` : ''
+  return apiFetchWithAuth(`/api/admin/landing-pages${qs}`, { method: 'GET' })
+}
+
+export async function getAdminLandingPage(id) {
+  return apiFetchWithAuth(`/api/admin/landing-pages/${id}`, { method: 'GET' })
+}
+
+export async function postAdminLandingPage(payload) {
+  return apiFetchWithAuth('/api/admin/landing-pages', { method: 'POST', body: JSON.stringify(payload) })
+}
+
+export async function patchAdminLandingPage(id, payload) {
+  return apiFetchWithAuth(`/api/admin/landing-pages/${id}`, { method: 'PATCH', body: JSON.stringify(payload) })
+}
+
+export async function deleteAdminLandingPage(id) {
+  return apiFetchWithAuth(`/api/admin/landing-pages/${id}`, { method: 'DELETE' })
 }

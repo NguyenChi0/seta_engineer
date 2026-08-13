@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom'
 const navItems = [
   { to: '/admin', label: 'Dashboard', end: true },
   { to: '/admin/account', label: 'Account' },
-  { to: '/admin/posts', label: 'Posts' }
+  { to: '/admin/posts', label: 'Posts' },
+  { to: '/admin/landing-pages', label: 'Landing pages' }
 ]
 
 function Sidebar({ isMobile, isOpen, onClose }) {

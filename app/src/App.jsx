@@ -19,6 +19,10 @@ import AdminPostCreate from './admin/pages/AdminPostCreate'
 import AdminPostUpdate from './admin/pages/AdminPostUpdate'
 import AdminLogin from './admin/pages/AdminLogin'
 import RequireAuth from './admin/RequireAuth'
+import CustomLandingPage from './pages/CustomLandingPage'
+import AdminLanding from './admin/pages/AdminLanding'
+import AdminLandingCreate from './admin/pages/AdminLandingCreate'
+import AdminLandingUpdate from './admin/pages/AdminLandingUpdate'
 
 function App() {
   return (
@@ -53,7 +57,11 @@ function App() {
           <Route path="posts" element={<AdminPost />} />
           <Route path="posts/create" element={<AdminPostCreate />} />
           <Route path="posts/:id/edit" element={<AdminPostUpdate />} />
+          <Route path="landing-pages" element={<AdminLanding />} />
+          <Route path="landing-pages/create" element={<AdminLandingCreate />} />
+          <Route path="landing-pages/:id/edit" element={<AdminLandingUpdate />} />
         </Route>
+        <Route path="/:slug" element={<CustomLandingPage />} />
       </Routes>
     </BrowserRouter>
   )

@@ -585,10 +585,17 @@ a:hover .btn-news .btn__text {
   margin-bottom: 48px;
 }
 
+.news-list--cards .news-list__item {
+  display: flex;
+  min-width: 0;
+}
+
 .news-list--cards .news-list__item a.news-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  flex: 1;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   box-sizing: border-box;
@@ -609,6 +616,9 @@ a:hover .btn-news .btn__text {
 }
 
 .news-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 18px 0 0;
   box-sizing: border-box;
 }
@@ -628,11 +638,15 @@ a:hover .btn-news .btn__text {
 
 .news-list--cards .news__category {
   width: auto;
+  max-width: 100%;
   min-width: 0;
   height: 26px;
   padding: 0 14px;
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-list--cards .category--info .news__category {
@@ -671,6 +685,8 @@ a:hover .btn-news .btn__text {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .news-list--cards .news-card__footer .btn-frame {
@@ -754,7 +770,7 @@ a:hover .btn-news .btn__text {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 32px;
     row-gap: 48px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .news-page .news-list--cards .news-list__item {

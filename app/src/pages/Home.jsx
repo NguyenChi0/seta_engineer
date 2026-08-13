@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useRevealInViewport } from '../hooks/useRevealInViewport'
 import { HOME_NEWS_PREVIEW_COUNT } from '../data/newsItems'
 import { getPosts } from '../api'
+import { getPostHref } from '../utils/postUrl'
+import { parsePostCategory } from '../utils/postCategory'
 import './homeNewsCompact.css'
 
 const ASSETS = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + 'assets/'
@@ -311,11 +313,11 @@ function NewsSection() {
             <ul className="news-list">
               {preview.map((item, i) => (
                 <li key={item.id ?? i} className="news-list__item category--info">
-                  <Link to={`/news/${item.id}`}>
+                  <Link to={getPostHref(item)}>
                     <time className="news__date" dateTime={item.createdAt || ''}>
                       {formatDate(item.createdAt)}
                     </time>
-                    <div className="news__category">{item.tags || 'お知らせ'}</div>
+                    <div className="news__category">{parsePostCategory(item.tags).category}</div>
                     <div className="news__content">
                       <div className="news__title">
                         <p>{item.title}</p>

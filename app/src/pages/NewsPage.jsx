@@ -1,6 +1,9 @@
 import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import NewsCardItem from '../components/news/NewsCardItem'
 import { getPosts } from '../api'
+import { usePageMeta } from '../hooks/usePageMeta'
+import { getPostHref } from '../utils/postUrl'
+import { parsePostCategory } from '../utils/postCategory'
 import { resolveApiAssetUrl } from '../utils/assetUrl'
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
@@ -10,6 +13,13 @@ export default function NewsPage() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+
+  usePageMeta({
+    title: '新着情報',
+    description: '株式会社Seta Engineering の新着情報・お知らせ一覧です。',
+    url: '/news',
+    type: 'website'
+  })
 
   useLayoutEffect(() => {
     const link = document.createElement('link')
@@ -53,11 +63,12 @@ export default function NewsPage() {
         const yyyy = isValid ? d.getFullYear() : '----'
         const mm = isValid ? String(d.getMonth() + 1).padStart(2, '0') : '--'
         const dd = isValid ? String(d.getDate()).padStart(2, '0') : '--'
+        const { category, categoryKey } = parsePostCategory(post.tags)
         return {
           id: String(post.id),
-          href: `/news/${post.id}`,
-          category: post.tags || 'お知らせ',
-          categoryKey: 'info',
+          href: getPostHref(post),
+          category,
+          categoryKey,
           date: `${yyyy}/${mm}/${dd}`,
           datetime: isValid ? d.toISOString().slice(0, 10) : '',
           title: post.title || '',

@@ -1,0 +1,24 @@
+.custom-landing-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-landing-page--loading,
+.custom-landing-page--error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  color: #374151;
+  text-align: center;
+}
+
+.custom-landing-page img,
+.custom-landing-page video,
+.custom-landing-page iframe {
+  max-width: 100%;
+  height: auto;
+}

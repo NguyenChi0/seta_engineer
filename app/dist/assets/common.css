@@ -222,7 +222,7 @@ a {
 =======================================================
 */
 
-header {
+header:not(.news-article__header) {
 	position: absolute;
 	top: 0;
 	left: 0;
